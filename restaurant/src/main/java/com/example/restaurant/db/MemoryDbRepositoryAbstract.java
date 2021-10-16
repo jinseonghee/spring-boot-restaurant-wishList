@@ -50,7 +50,7 @@ abstract public class MemoryDbRepositoryAbstract<T extends MemoryDbEntity> imple
         var optionalEntity = db.stream().filter(it -> it.getIndex() == index).findFirst(); //optional한 개체를 찾아옴
 
         if(optionalEntity.isPresent()) { //optionalEntity에 데이터가 이미 있는 경우
-            db.remove(optionalEntity.get()); // 해당 object와 동일한 object 를 remove
+            db.remove(optionalEntity.get()); // 해당 object와 동일한 object를 remove
         }
     }
 
