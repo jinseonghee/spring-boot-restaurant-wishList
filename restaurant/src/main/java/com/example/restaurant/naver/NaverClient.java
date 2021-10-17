@@ -47,6 +47,8 @@ public class NaverClient {
         // request, response type 준비
         var httpEntity = new HttpEntity<>(headers); //이 header를 가지고 요청을 해야 하기 때문에 entity에 담아줌
         var responseType = new ParameterizedTypeReference<SearchLocalRes>(){};
+        //var responseType = new ParameterizedTypeReference<String>(){}; body 에 찍히는 값을 문자열로 확인해 보기 위해 type을 string 으로 지정하고 return null
+
 
         //REST template를 통해서 response(결과 얻어옴)
         var responseEntity = new RestTemplate().exchange(
@@ -56,6 +58,7 @@ public class NaverClient {
                 responseType
         );
 
+        //return null;
         return responseEntity.getBody(); //getBody()를 통해 결과 return
     }
 

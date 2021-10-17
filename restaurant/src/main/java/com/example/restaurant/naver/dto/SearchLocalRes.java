@@ -16,7 +16,6 @@ public class SearchLocalRes {
     private int total;
     private int start;
     private int display;
-    private String category;
     private List<SearchLocalItem> items; // 밑에 내부 클래스의 이름을 맞춰줌.
 
     @Data
@@ -26,6 +25,7 @@ public class SearchLocalRes {
 
         private String title;
         private String link;
+        private String category;
         private String description;
         private String telephone;
         private String address;
