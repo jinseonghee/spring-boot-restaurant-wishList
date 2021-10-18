@@ -32,4 +32,14 @@ public class ApiController {
     public List<WishListDto> findAll() { //dto 를 작성해서 실제 add가 되는지 확인하는 전체 List
         return wishListService.findAll();
     }
+
+    @DeleteMapping("/{index}")
+    public void delete(@PathVariable int index) {
+        wishListService.delete(index);
+    }
+
+    @PostMapping("/{index}")
+    public void addVisit(@PathVariable int index) {
+        wishListService.addVisit(index); //클릭하면 리스트를 가져와서 화면을 보여주기 떄문에 index만 추가
+    }
 }

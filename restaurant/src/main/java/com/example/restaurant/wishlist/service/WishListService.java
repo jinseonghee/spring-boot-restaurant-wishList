@@ -101,9 +101,23 @@ public class  WishListService {
     }
 
     public List<WishListDto> findAll() {
-        return wishListRepository.listAll() // WishListEntity로 넘어옴.
+        return wishListRepository.findAll() // WishListEntity로 넘어옴.
                 .stream() // listAll에 stream을 걸어줌.
                 .map(it -> entityToDto(it)) // map을 통해서 entity를 dto로 모두 바꿔줌
                 .collect(Collectors.toList()); // collect를 통해서 List로 바꿔줌.
+    }
+
+    public void delete(int index) {
+        wishListRepository.deleteById(index); // 특정 index 삭제
+    }
+
+    public void addVisit(int index) {
+        var wishItem = wishListRepository.findById(index); //값이 있거나 없을수도 있어서 확인
+        if(wishItem.isPresent()) { //값이있을떄 visitCount update(방문할때마다 1씩증가)
+            var item = wishItem.get();
+            item.setVisit(true);
+            item.setVisitCount(item.getVisitCount() + 1);
+
+        }
     }
 }
