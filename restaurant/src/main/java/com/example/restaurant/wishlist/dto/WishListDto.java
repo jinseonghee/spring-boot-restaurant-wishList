@@ -1,6 +1,5 @@
 package com.example.restaurant.wishlist.dto;
 
-import com.example.restaurant.db.MemoryDbEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
 public class WishListDto { //db의 Entity가 변경되면, Frontend 까지고 변수명을 변경해야 하는 영향을 끼친다.
                            //그렇지 않고 중간에 변환하는 과정만 있으면 되기 때문에, entity와 따로 분리해서 사용
 
-    private int index;
+    private Integer index;
     private String title; // 음식명, 장소명
     private String category; // 카테고리
     private String address; // 주소
